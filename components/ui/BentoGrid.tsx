@@ -10,7 +10,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto ",
+        "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto p-4", // Adjust grid and padding
         className
       )}
     >
@@ -23,31 +23,57 @@ export const BentoGridItem = ({
   className,
   title,
   description,
-  header,
-  icon,
-  id
+  img,
+  imgClassName,
+  spareImg,
+  id,
 }: {
   className?: string;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
-  header?: React.ReactNode;
-  icon?: React.ReactNode;
-  id: number
+  img?: string;
+  imgClassName?: string;
+  spareImg?: string;
+  id: number;
 }) => {
   return (
     <div
       className={cn(
-        "row-span-1 rounded-3xl relative group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4 border-red-500",
+        "relative group hover:shadow-lg transition duration-300 p-4 rounded-lg dark:bg-black bg-white border dark:border-white/[0.1] shadow-md", // Adjust shadows and padding
         className
       )}
+      style={{
+        backgroundColor: "#020024", // Gradient background
+        backgroundImage:
+          "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(59,59,68,1) 26%, rgba(93,108,111,1) 100%)",
+      }}
     >
-      {header}
-      <div className="group-hover/bento:translate-x-2 transition duration-200">
-        {icon}
-        <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
+      <div className="flex justify-center items-center h-40"> {/* Adjust height */}
+        <div className="w-full h-full absolute top-0 left-0">
+          {img && (
+            <img
+              src={img}
+              alt={img}
+              className={cn(imgClassName, "object-cover h-full w-full rounded-md")} // Adjust image sizing
+            />
+          )}
+        </div>
+
+        <div className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"}` }>
+          {spareImg && (
+            <img
+            src={spareImg}
+            alt={spareImg}
+            className="object-cover h-full w-full rounded-md h-full"/>
+          )}
+        </div>
+      </div>
+
+      <div className="transition duration-300 transform group-hover:translate-x-1 mt-40">
+        <div className="font-sans font-semibold text-neutral-800 dark:text-neutral-200 text-sm mb-1">
           {title}
         </div>
-        <div className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">
+        <div className="font-sans font-normal text-neutral-500 text-xs dark:text-neutral-300">
           {description}
         </div>
       </div>
