@@ -1,5 +1,8 @@
 import React from 'react'
 import { Spotlight } from './ui/spotlight'
+import { TextGenerateEffect } from './ui/TexeGenerateEffect'
+import MagicButton from './ui/magicButton'
+import { FaLocationArrow } from 'react-icons/fa'
 function Hero() {
   return (
     <div className='pb-20 pt-36'>
@@ -25,8 +28,24 @@ function Hero() {
         flex flex-col items-center justify-center'>
             <h2 className='uppercase tracking-widest text-xs text-center
              text-blue-100 max-w-80'>
-                Dynamic Web Magic with Next.js
+                We help you achieve your goals faster 
             </h2>
+
+            <TextGenerateEffect 
+            className='text-centre  text-[40px] md:text-5xl lg:text-6xl'
+            words='Transforming Concepts into Seamless User Experiences'/>
+
+            <p className='text-centre md:tracking-wider mb-4 text-sm
+             md:text-lg lg:text-2xl'>
+                Hi I&apos;m Ahmed, a MERN Stack Developer based in Pakistan.  
+                I create dynamic, responsive web applications with modern technologies. 
+             </p>
+             <a href='#about'>
+                <MagicButton
+                 title= "show my work"
+                  icon= {<FaLocationArrow/>}
+                  position='right' />
+             </a>
         </div>
          </div>
     </div>
