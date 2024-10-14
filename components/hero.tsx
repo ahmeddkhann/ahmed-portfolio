@@ -5,6 +5,7 @@ import MagicButton from './ui/magicButton'
 import { FaLocationArrow } from 'react-icons/fa'
 import myPfImage from "../public/myPfImg.png"
 import Image from 'next/image'
+import { socialMedia } from '../data'
 
 function Hero() {
   return (
@@ -23,10 +24,13 @@ function Hero() {
           fill='blue'
         />
       </div>
-
+ 
       <div className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.05] bg-grid-black/[0.2] flex items-center absolute top-0 left-0 justify-center">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"/>
       </div>
+
+      {/* Social media icons positioned on the right */}
+      
 
       <div className='flex flex-col-reverse md:flex-row justify-center items-center relative my-8 z-10 gap-8'>
         {/* Image Section */}
@@ -41,8 +45,22 @@ function Hero() {
         </div>
 
         {/* Text Section */}
-        <div className='max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center md:items-start justify-center'>
-          <h2 className='uppercase tracking-widest text-xs lg:ml-40 text-center md:text-left text-blue-100 max-w-80'>
+
+        <div className='max-w-[89vw] md:max-w-2xl lg:max-w-[80vw] flex flex-col items-center md:items-start justify-center'>
+        <div className=" right-6 flex items-center gap-4">
+        {socialMedia.map((info) => (
+          <a 
+            key={info.id}
+            href={info.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+          >
+            <img src={info.img} alt="social icon" width={20} height={20} />
+          </a>
+        ))}
+      </div>
+          <h2 className='uppercase mt-8 tracking-widest text-xs lg:ml-40 text-center md:text-left text-blue-100 max-w-80'>
             We help you achieve your goals faster 
           </h2>
 
@@ -56,10 +74,10 @@ function Hero() {
             I create dynamic, responsive web applications with modern technologies. 
           </p>
 
-          <a href='#about'>
+          <a href='#projects'>
             <MagicButton
               title="check my work"
-              icon={<FaLocationArrow/>}
+              icon={<FaLocationArrow />}
               position='right'
             />
           </a>
