@@ -49,8 +49,8 @@ export const navItems = [
   
     {
       id: 5,
-      title: "Currently Building a JS Animation Library",
-      description: "I'm developing a powerful, lightweight JavaScript library.",
+      title: "Currently working on different MERN Stack Projects.",
+      description: "",
       className: "md:col-span-3 md:row-span-2",
       imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
       titleClassName: "justify-center md:justify-start lg:justify-center",
